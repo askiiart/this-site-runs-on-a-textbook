@@ -1,0 +1,64 @@
+body {
+    color: #dadada;
+    background: #202020;
+    margin: 1em auto;
+    max-width: 90vw;
+    padding: 0 .62em;
+    font: 1.0em/1.35 sans-serif
+}
+
+a:link,
+a:visited {
+    color: #80c47b;
+}
+
+a:hover,
+a:visited:hover {
+    color: #6bb794
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2
+}
+
+code {
+    background: #202020
+}
+
+pre {
+
+    background: #202020
+}
+
+wrap {
+    word-wrap: break-word
+}
+
+@media (max-device-width: 1200px) {
+    h1 {
+        line-height: 1.2;
+        font-size: 40px;
+    }
+
+    h2 {
+        line-height: 1.2;
+        font-size: 30px;
+    }
+
+    body {
+        font-size: 20px;
+    }
+
+    pre,
+    code {
+        font-size: 16px;
+    }
+}
+
+@media print {
+    body {
+        max-width: none
+    }
+}
