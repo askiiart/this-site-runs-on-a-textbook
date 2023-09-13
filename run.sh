@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+sudo apt update
+sudo apt install nginx -y
 sudo cp /usercode/this-site-runs-on-a-textbook/nginx/default.conf /etc/nginx/conf.d
 sudo nginx
 # Remote port forwarding in the background
