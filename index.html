@@ -2,24 +2,91 @@
 <html lang="en">
     <head>
         <meta content="width=device-width, initial-scale=1" charset="utf-8" />
-        <link rel="icon" href="/assets/askiiart.gif" type="image/icon">
-        <title>Lorem ipsum</title>
+        <link rel="icon" href="https://askiiart.net/assets/askiiart.gif" type="image/icon">
+        <title>This website runs on a textbook</title>
         <link href="/style.css" type="text/css" rel="stylesheet" />
     </head>
-    <body class="line-numbers">
-        <h1 id="lorem-ipsum">Lorem ipsum</h1>
-        <h2 id="dolor-sit-amet">Dolor sit amet</h2>
-        <p>Consectetuer adipiscing elit. Aenean commodo ligula eget
-        dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-        parturient montes, nascetur ridiculus mus.</p>
-        <ul>
-        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing
-        elit.</li>
-        <li>Aenean commodo ligula eget dolor.</li>
-        <li>Aenean massa.</li>
-        </ul>
+    <body>
+        <h1 id="this-website-runs-on-a-textbook">This website runs on a
+        textbook</h1>
+        <h2 id="what-exactlys-going-on">What exactly's going on</h2>
+        <p>My Java class uses Zybooks, which uses some software that
+        lets me pick what language and IDE to use, then gives me an
+        Ubuntu container to code in, hosted on AWS. For example, here's
+        <a
+        href="https://github.com/coder/code-server"><code>code-server</code></a>
+        with Java 11. And I also have remote desktop access over VNC via
+        Apache Guacamole. But more interestingly, <strong>I have root
+        access.</strong></p>
+        <figure>
+        <img src="/media/zybooks-java-code.png"
+        alt="code-server running in Zybooks, configured for Java. There is a &quot;Submit for Grading&quot; button in the bottom-left corner." />
+        <figcaption aria-hidden="true">code-server running in Zybooks,
+        configured for Java. There is a "Submit for Grading" button in
+        the bottom-left corner.</figcaption>
+        </figure>
+        <p>Here's what I did:</p>
+        <ol type="1">
+        <li>Loaded up the bash + <code>code-server</code>
+        environment</li>
+        <li>Installed and ran <code>nginx</code></li>
+        <li>Set up remote port-forwarding from my server
+        <ol type="1">
+        <li>See <a
+        href="https://serverfault.com/questions/861909/ssh-r-make-target-host-accept-connection-on-all-interfaces">here</a>
+        for details on that.</li>
+        </ol></li>
+        <li>Eternally create, modify, and delete file to keep the
+        container alive.
+        <ol type="1">
+        <li>(In)activity detection is based off whether any files on
+        /usercode have been modified in <em>x</em> minutes.</li>
+        </ol></li>
+        </ol>
+        <h2 id="but-can-it-run-doom">But can it run DOOM?</h2>
+        <p>Yes, yes it can!</p>
+        <figure>
+        <img src="/media/doom.png" alt="DOOM running in Zybooks" />
+        <figcaption aria-hidden="true">DOOM running in
+        Zybooks</figcaption>
+        </figure>
+        <h2 id="but-can-it-run-crysis">But can it run Crysis?</h2>
+        <p>Probably not. But if anyone knows how to run Crysis on this
+        thing, I'd be happy to try, <a
+        href="mailto:dev@askiiart.net">just let me know</a>.</p>
+        <h2 id="some-other-stuff">Some other stuff</h2>
+        <ol type="1">
+        <li><p>I have no idea how to make a fancier site, but it turns
+        out that the 1GB I have is just enough to run a Next.js site,
+        and access it from Midori. <a
+        href="https://github.com/askiiart/this-site-runs-on-a-textbook/blob/main/install-node-npm.sh">Here's</a>
+        a script for installing Node.js and <code>npm</code>.</p></li>
+        <li><p>Here's the <code>neofetch</code> results:</p>
+        <div class="sourceCode" id="cb1"><pre
+        class="language-txt"><code class="language-default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>➜ neofetch</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>            .-/+oossssoo+/-.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        `:+ssssssssssssssssss+:`</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      -+ssssssssssssssssssyyssss+-</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    .ossssssssssssssssssdMMMNysssso.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   /ssssssssssshdmmNNmmyNMMMMhssssss/      mysql@f76bb9853566 </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  +ssssssssshmydMMMMMMMNddddyssssssss+     ------------------ </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a> /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    OS: Ubuntu 20.04.5 LTS x86_64 </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Host: t3.xlarge </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>+sssshhhyNMMNyssssssssssssyNMMMysssssss+   Kernel: 5.15.0-1034-aws </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Uptime: 11 hours, 35 mins </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Packages: 697 (dpkg) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>+sssshhhyNMMNyssssssssssssyNMMMysssssss+   Shell: bash 5.0.17 </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Resolution: 1366x768 </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/    WM: IceWM 1.6.4 (Linux/x86_64) </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  +sssssssssdmydMMMMMMMMddddyssssssss+     WM Theme: default.theme </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   /ssssssssssshdmNNNNmyNMMMMhssssss/      Theme: Adwaita [GTK3] </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    .ossssssssssssssssssdMMMNysssso.       Icons: Adwaita [GTK3] </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      -+sssssssssssssssssyyyssss+-         Terminal: vscode </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        `:+ssssssssssssssssss+:`           CPU: Intel Xeon Platinum 8259CL (4) @ 2.499GHz </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            .-/+oossssoo+/-.               Memory: 2388MiB / 15815MiB </span></code></pre></div></li>
+        </ol>
     </body>
     <footer>
-        <p>Created by askiiart. Main site <a href="https://askiiart.net">here</a>, source code <a href="https://github.com/askiiart/this-site-runs-on-a-textbook">here</a>.</p>
+        <p>Created by askiiart. Main site <a href="https://askiiart.net">here</a>, source code <a href="https://git.askiiart.net/askiiart/this-site-runs-on-a-textbook">here</a> and <a href="https://github.com/askiiart/this-site-runs-on-a-textbook">here</a>.</p>
     </footer>
 </html>

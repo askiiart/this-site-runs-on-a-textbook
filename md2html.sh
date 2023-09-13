@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
-dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
-git status --porcelain | awk 'match($1, "(M|A|\?\?)"){print $2}' | while read -r item ; do
+git status --porcelain | awk 'match($1, "(M|A|\?\?)"){print $2}' | while read -r item; do
     if [[ ${item} == *.md ]]; then
         item="${item%.*}"
         echo "Currently processing ${item}"
@@ -10,4 +10,5 @@ git status --porcelain | awk 'match($1, "(M|A|\?\?)"){print $2}' | while read -r
     fi
 done
 
+# For prism.js, if used. But in this case, it's not.
 find . \( ! -regex './md2html.sh' \) -type f | xargs sed -i 's/sourceCode /language-/g'
