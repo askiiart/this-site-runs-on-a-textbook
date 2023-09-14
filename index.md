@@ -1,4 +1,4 @@
-# This website runs on a textbook
+# This site runs on a textbook
 
 ## What exactly's going on
 
