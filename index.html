@@ -4,7 +4,7 @@
         <meta content="width=device-width, initial-scale=1" charset="utf-8" />
         <link rel="icon" href="https://askiiart.net/assets/askiiart.gif" type="image/icon">
         <title>This website runs on a textbook</title>
-        <link href="/style.css" type="text/css" rel="stylesheet" />
+        <link href="style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <h1 id="this-website-runs-on-a-textbook">This website runs on a
@@ -13,13 +13,12 @@
         <p>My Java class uses Zybooks, which uses some software that
         lets me pick what language and IDE to use, then gives me an
         Ubuntu container to code in, hosted on AWS. For example, here's
-        <a
-        href="https://github.com/coder/code-server"><code>code-server</code></a>
+        <a href="https://github.com/coder/code-server">code-server</a>
         with Java 11. And I also have remote desktop access over VNC via
         Apache Guacamole. But more interestingly, <strong>I have root
         access.</strong></p>
         <figure>
-        <img src="/media/zybooks-java-code.png"
+        <img src="media/zybooks-java-code.png"
         alt="code-server running in Zybooks, configured for Java. There is a &quot;Submit for Grading&quot; button in the bottom-left corner." />
         <figcaption aria-hidden="true">code-server running in Zybooks,
         configured for Java. There is a "Submit for Grading" button in
@@ -27,26 +26,30 @@
         </figure>
         <p>Here's what I did:</p>
         <ol type="1">
-        <li>Loaded up the bash + <code>code-server</code>
-        environment</li>
-        <li>Installed and ran <code>nginx</code></li>
+        <li>Loaded up the bash + code-server environment</li>
+        <li>Installed and ran nginx</li>
+        <li>Eternally create, modify, and delete file to keep the
+        container alive.
+        <ol type="1">
+        <li>(In)activity detection is based off whether any files on
+        /usercode have been modified in <em>x</em> minutes.</li>
+        <li>The page also needs to be open, so I've got that running in
+        a little VM on my server.</li>
+        </ol></li>
         <li>Set up remote port-forwarding from my server
         <ol type="1">
         <li>See <a
         href="https://serverfault.com/questions/861909/ssh-r-make-target-host-accept-connection-on-all-interfaces">here</a>
         for details on that.</li>
         </ol></li>
-        <li>Eternally create, modify, and delete file to keep the
-        container alive.
-        <ol type="1">
-        <li>(In)activity detection is based off whether any files on
-        /usercode have been modified in <em>x</em> minutes.</li>
-        </ol></li>
+        <li>Have caddy reverse-proxy <a
+        href="https://textbook.askiiart.net">textbook.askiiart.net</a>
+        to the container (via the forwarded port).</li>
         </ol>
         <h2 id="but-can-it-run-doom">But can it run DOOM?</h2>
         <p>Yes, yes it can!</p>
         <figure>
-        <img src="/media/doom.png" alt="DOOM running in Zybooks" />
+        <img src="media/doom.png" alt="DOOM running in Zybooks" />
         <figcaption aria-hidden="true">DOOM running in
         Zybooks</figcaption>
         </figure>
@@ -60,8 +63,8 @@
         out that the 1GB I have is just enough to run a Next.js site,
         and access it from Midori. <a
         href="https://github.com/askiiart/this-site-runs-on-a-textbook/blob/main/install-node-npm.sh">Here's</a>
-        a script for installing Node.js and <code>npm</code>.</p></li>
-        <li><p>Here's the <code>neofetch</code> results:</p>
+        a script for installing Node.js and npm.</p></li>
+        <li><p>Here's the neofetch results:</p>
         <div class="sourceCode" id="cb1"><pre
         class="language-txt"><code class="language-default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>➜ neofetch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>            .-/+oossssoo+/-.</span>
@@ -84,6 +87,22 @@
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      -+sssssssssssssssssyyyssss+-         Terminal: vscode </span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        `:+ssssssssssssssssss+:`           CPU: Intel Xeon Platinum 8259CL (4) @ 2.499GHz </span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            .-/+oossssoo+/-.               Memory: 2388MiB / 15815MiB </span></code></pre></div></li>
+        <li><p>Other port-forwarding stuff, like <a
+        href="https://github.com/localtunnel/localtunnel">localtunnel</a>,
+        are blocked. <a
+        href="https://github.com/erebe/wstunnel"><code>wstunnel</code></a>
+        might work, and it's also rather convenient that it has a static
+        binary, but I haven't tried it yet.</p></li>
+        <li><p>My server occasionally crashes, and I'm still trying to
+        figure. Sorry if the site goes offline for a bit, but if it
+        does, it should be back up soon. Also, it's rather funny that my
+        textbook is more reliable than my actual server.</p>
+        <ol type="1">
+        <li>If you're interested, I'm running Debian 12 in a VM, all
+        I've got installed is Docker. I've checked journalctl, my RAM,
+        and I verified the installation media. I'm not sure what else to
+        check, but I'm certainly open to suggestions.</li>
+        </ol></li>
         </ol>
     </body>
     <footer>
